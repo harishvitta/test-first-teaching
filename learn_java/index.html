@@ -46,17 +46,38 @@
                 Click "OK" a few more times
             </li>
         </ol>
-        <img src="add_new_sdk.png" />
+        <img src="add_new_sdk.png"border="1" height="100"/>
+    </li>
+    <li>
+        Configure the compiler output directory
+        <ol>
+            <li>Select "File > Project Structure"</li>
+            <img src="project_structure.png" border="1" height="400"/>
+            <li>Click the three dots beneath "Project Compiler Output"</li>
+            <li>Click the brown folder icon to select the project directory</li>
+            <li>Click the "Classes" directory</li>
+            <img src="compiler_output.png" border="1" height="400"/>
+        </ol>
+    </li>
+    <li>
+        Configure Modules as Tests
+        <ol>
+            <li>Select "File > Project Structure"</li>
+            <img src="project_structure.png" border="1" height="400"/>
+            <li>Click "Modules"</li>
+            <li>Select all directories except "Classes" and ".idea"</li>
+            <li>Click "Mark as: Tests"</li>
+            <img src="change_modules_to_tests.png" border="1" height="400"/>
+        </ol>
     </li>
     <li>
         Add junit.jar to the classpath
         <ol>
             <li>Select "File > Project Structure"</li>
+            <img src="project_structure.png" border="1" height="400"/>
             <li>Select "Add Library" </li>
-            <li>Select the junit.jar file in this dir</li>
-            <li>Select the "Modules" tab</li>
-            <li>Make sure all lesson directories are selected as "Test" dirs</li>
-            <li>Make sure there's a Compiler Output directory</li>
+            <li>Select the junit-4.12.jar file in this dir</li>
+            <img src="add_junit_jar.png" border="1" height="400"/>
         </ol>
     </li>
 </ol>
