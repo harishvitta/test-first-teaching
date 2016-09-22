@@ -1,11 +1,11 @@
 public class Intro
 {
-    public String getHello()
+    public String sayHello()
     {
         return "Hello";
     }
 
-    public String getGoodbye()
+    public String sayGoodbye()
     {
         return "Farewell";
     }
