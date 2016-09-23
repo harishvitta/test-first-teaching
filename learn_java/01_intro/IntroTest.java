@@ -14,6 +14,4 @@ public class IntroTest extends TestCase
         assertEquals("Goodbye", x.sayGoodbye());
     }
 
-
 }
-
