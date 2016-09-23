@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>Bonus: Refactoring Lesson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
   </head>
 
-  <body>
+  <body class="container">
     <h1>Bonus: Refactoring Lesson</h1>
 
     <p>
@@ -31,7 +32,7 @@
     <p>
       This will make Portfolio.java look something like this:
     </p>
-    <pre>
+    <pre><code>
 ...
     public double getTotalValue()
     {
@@ -53,7 +54,7 @@
         return total;
     }
 ...
-    </pre>
+    </code></pre>
     <p>
       If you are not using a Refactoring Tool (like IDEA or Eclipse)
       then you will have to manually go through your source code, find
@@ -71,12 +72,12 @@
       identical.  We can define one in terms of the other, unifying
       them as follows:
     </p>
-    <pre>
+    <pre><code>
     public static double totalValue(Asset[] assets)
     {
         return new Portfolio(assets).getTotalValue();
     }
-    </pre>
+    </code></pre>
     <p>
       While this may seem slightly less efficient (we need to create a
       new Portfolio object each time), this will only become visible
@@ -93,11 +94,11 @@
       like, you can make it go away entirely by replacing every call
       to
     </p>
-<pre>Portfolio.totalValue(x)</pre>
+<pre><code>Portfolio.totalValue(x)</code></pre>
     <p>
       with
     </p>
-<pre>new Portfolio(x).getTotalValue()</pre>
+<pre><code>new Portfolio(x).getTotalValue()</code></pre>
     <p>
       elsewhere in your code.  Once you have done that for all
       callers, you may delete the static totalValue method altogether.
