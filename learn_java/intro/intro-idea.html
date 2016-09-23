@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>Introduction to Test-First Training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
   </head>
 
-  <body>
+  <body class="container">
     <h1>Introduction to Test-First Training - IDEA Instructions</h1>
 
     <blockquote>
@@ -14,7 +15,6 @@
     <ol>
       <li>
         Open <code>intro/IntroTest.java</code>
-        <br /><br />
       </li>
       <li>
         Right-click at the <b>top</b> of the source code window.
@@ -22,12 +22,10 @@
 
       <li>
           Select "Run IntroTest"
-          <br /><br />
       </li>
 
       <li>
           See how the first test passes? It's green. GREEN IS GOOD!
-        <br /><br />
       </li>
 
       <li>
@@ -35,14 +33,13 @@
 
         When you look at the test results you will see an error message that looks
         something like this:
-        <pre>
-junit.framework.ComparisonFailure:
-Expected :Goodbye
-Actual   :Farewell
-    ...
-	at IntroTest.testGoodbye(IntroTest.java:14)
-        </pre>
-        <br /><br />
+        <pre><code>
+            junit.framework.ComparisonFailure:
+            Expected :Goodbye
+            Actual   :Farewell
+            ...
+            at IntroTest.testGoodbye(IntroTest.java:14)
+        </code></pre>
       </li>
       <li>
           Open the file <code>Intro.java</code> and edit the code
@@ -50,13 +47,13 @@ Actual   :Farewell
       </li>
         <li>
             Now create an entirely new test containing this code:
-            <pre>
-    public void testHowAreYou()
-    {
-        Intro x = new Intro();
-        assertEquals("Fine", x.sayHowAreYou());
-    }
-            </pre>
+            <pre><code>
+                public void testHowAreYou()
+                {
+                    Intro x = new Intro();
+                    assertEquals("Fine", x.sayHowAreYou());
+                }
+            </code></pre>
         </li>
         <li>
             Run the test and watch it fail.

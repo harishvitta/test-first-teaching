@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>Introduction to Test-First Training</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
   </head>
 
-  <body>
+  <body class="container">
     <h1>Introduction to Test-First Training - Terminal Instructions</h1>
 
     <blockquote>
@@ -14,27 +15,23 @@
     <ol>
       <li>
         Open a command prompt.
-        <br /><br />
       </li>
       <li>
         Change directories to the "intro" module.
-        <pre>cd intro</pre>
-        <br /><br />
+        <pre><code>cd intro</code></pre>
       </li>
       <li>
         Look at the two test files in the directory.
-        <pre>(IntroTest0.java and IntroTest1.java)</pre>
-        <br /><br />
+        <pre><code>(IntroTest0.java and IntroTest1.java)</code></pre>
       </li>
       <li>
         Try to compile the first test using javac, the Java Compiler.
-        <pre>javac IntroTest0.java</pre>
-        <br /><br />
+        <pre><code>javac IntroTest0.java</code></pre>
       </li>
       <li>
         This should fail!  You will get an error message that looks
         something like this:
-        <pre>
+        <pre><code>
 $ javac IntroTest0.java
 IntroTest0.java:5: cannot resolve symbol
 symbol  : class Intro
@@ -46,11 +43,10 @@ symbol  : class Intro
 location: class IntroTest0
         Intro x = new Intro();
                       ^
-	</pre>
+	</code></pre>
 
         This is the Java compiler telling you that you need an object
         (class) named Intro.
-        <br /><br />
       </li>
       <li>
         Create a class named Intro.  Using your favorite text editor,
@@ -58,32 +54,30 @@ location: class IntroTest0
         important</b> in Java, so make sure the "I" is capitalized),
         in the <tt>intro</tt> directory, and put the following text
         into it:
-        <pre>
+        <pre><code>
 public class Intro
 {
 }
-	</pre>
+	</code></pre>
 
         This is the way you create a "stub class", or an object that
         doesn't do anything yet.
-        <br /><br />
       </li>
       <li>
         Try to compile IntroTest0.java again.
-        <pre>javac IntroTest0.java</pre>
-        <br /><br />
+        <pre><code>javac IntroTest0.java</code></pre>
       </li>
       <li>
         It should fail again!  This time, the message will be
         something like:
-        <pre>
+        <pre><code>
 IntroTest0.java:6: cannot resolve symbol
 symbol  : method getHello  ()
 location: class Intro
         assertEquals("Hello", x.getHello());
                                ^
 1 error
-	</pre>
+	</code></pre>
 
         This is typical for test-first development.  You may have to
         mess with your implementation code several times before the
@@ -92,11 +86,10 @@ location: class Intro
         it has a lot of information about the other classes in your
         world.)
 
-        <br /><br />
       </li>
       <li>
         Make Intro.java look like this:
-        <pre>
+        <pre><code>
 public class Intro
 {
     public String getHello()
@@ -104,24 +97,21 @@ public class Intro
         return "Goodbye";
     }
 }
-	</pre>
-        <br /><br />
+	</code></pre>
       </li>
       <li>
         Compile the test one more time.
-        <pre>javac IntroTest0.java</pre>
-        <br /><br />
+        <pre><code>javac IntroTest0.java</code></pre>
       </li>
       <li>
         Now run the test, using the <tt>java</tt> executable.
-        <pre>java IntroTest0</pre>
-        <br /><br />
+        <pre><code>java IntroTest0</code></pre>
       </li>
       <li>
         This should also fail!  (Are you getting used to failure yet?)
         This is meant to simulate you not getting the answer right the
         first time.  You should see a message like:
-        <pre>
+        <pre><code>
 Running IntroTest0
 testHello...FAILURE
 Test$AssertionFailed: Expected &lt;Hello&gt; but got &lt;Goodbye&gt;
@@ -134,7 +124,7 @@ Test$AssertionFailed: Expected &lt;Hello&gt; but got &lt;Goodbye&gt;
 	at Test.main(Test.java:70)
 
 OK: 0 FAILED: 1
-	</pre>
+	</code></pre>
         This is the Test program telling you that it tried to run the
         test case called "testHello" but it failed.  The test case was
         expecting to get back the string "Hello" but instead, it got
@@ -142,16 +132,15 @@ OK: 0 FAILED: 1
         source file and line number where the assertion was made.
         Look down the list of "at" lines until you see the one caused
         by your specific test case.
-        <pre>at IntroTest0.testHello(IntroTest0.java:6)</pre>
+        <pre><code>at IntroTest0.testHello(IntroTest0.java:6)</code></pre>
         Open up this file (IntroTest0.java) and look at line 6.
-        <pre>assertEquals("Hello", x.getHello());</pre>
+        <pre><code>assertEquals("Hello", x.getHello());</code></pre>
         This gives you a big hint that the problem is somewhere inside
         the method called <tt>getHello()</tt>.
-        <br /><br />
       </li>
       <li>
         Go back to Intro.java and fix it.
-        <pre>
+        <pre><code>
 public class Intro
 {
     public String getHello()
@@ -159,21 +148,18 @@ public class Intro
         return "Hello";
     }
 }
-	</pre>
-        <br /><br />
+	</code></pre>
       </li>
       <li>
         Recompile and rerun the test. (Always be sure to recompile!)
-        <pre>
+        <pre><code>
 javac IntroTest0.java
 java IntroTest0
-	</pre>
-        <br /><br />
+	</code></pre>
       </li>
       <li>
         Now, for extra credit, compile and run
         <tt>IntroTest1.java</tt>, and try to make it pass.
-        <br /><br />
       </li>
     </ol>
 
