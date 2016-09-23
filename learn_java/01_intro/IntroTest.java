@@ -14,12 +14,4 @@ public class IntroTest extends TestCase
         assertEquals("Goodbye", x.sayGoodbye());
     }
 
-    public void testHowAreYou()
-    {
-        Intro x = new Intro();
-        assertEquals("Fine", x.sayHowAreYou());
-    }
-
-
 }
-
