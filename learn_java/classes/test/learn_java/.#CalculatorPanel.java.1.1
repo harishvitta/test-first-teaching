@@ -5,9 +5,9 @@ import java.awt.*;
 public class CalculatorPanel extends JPanel
 {
 	private JTextField textX = new JTextField(10);
-
+		
 	private JTextField textY = new JTextField(10);
-
+		
 	private JLabel textAnswer = new JLabel("?");
 
     private  JButton buttonAdd = new JButton("Add");
@@ -15,9 +15,9 @@ public class CalculatorPanel extends JPanel
     private  JButton buttonMultiply = new JButton("Multiply");
 
 	public JTextField getTextFieldX() { return textX; }
-
+	
 	public JTextField getTextFieldY() { return textY; }
-
+	
 	public JLabel getAnswer() { return textAnswer; }
 
     public JButton getAddButton() { return buttonAdd; }
@@ -77,7 +77,7 @@ public class CalculatorPanel extends JPanel
 			textAnswer.setText("error");
 		}
 	}
-
+	
 	public static void main(String[] args)
 	{
 		JPanel p = new CalculatorPanel();
