@@ -16,7 +16,7 @@
       a series of tests that assure, more-or-less thoroughly, that the
       program code performs as it is supposed to.
     </p>
-    
+
     <p>
       For example, assume there is a function called <tt>add</tt> that
       takes two integers as parameters, adds them together, and
@@ -66,10 +66,10 @@
     <p>
       A <b>Unit Testing Framework</b> is a tool or library that
       provides a backdrop for writing unit tests. For example, to
-      implement a unit test in the popular 
+      implement a unit test in the popular
 
       <A href="http://junit.org">
-	JUnit framework,</a> 
+	JUnit framework,</a>
 
       you write a class that extends the common TestCase superclass.
       Each method in your subclass that begins with the word "test" is
@@ -105,7 +105,7 @@
       of their sheer size.  Many lines of code need to be written
       before the student receives any positive reinforcement that they
       are on the right track.  This can be frustrating to a beginning
-      student, and boring to an advanced one. 
+      student, and boring to an advanced one.
     </p>
 
     <p>
@@ -133,7 +133,7 @@
       then you stop coding.  The test provides a map to the student,
       informing him of where to begin, and where to end.
     </p>
-    
+
     <p>
       Test-first training is appropriate for both local and remote
       use.  If a student is in a classroom, he may rely on his
@@ -167,172 +167,21 @@
       Development Kit, sometimes called JDK or J2SDK, and configured
       it for your system.)
     </p>
-    <ol>
-      <li>
-	Open a command prompt.
-	<br /><br />
-      </li>
-      <li>
-	Change directories to the "intro" module. 
-	<pre>cd intro</pre>
-	<br /><br />
-      </li>
-      <li>
-	Look at the two test files in the directory.
-	<pre>(IntroTest0.java and IntroTest1.java)</pre>
-	<br /><br />
-      </li>
-      <li>
-	Try to compile the first test using javac, the Java Compiler.
-	<pre>javac IntroTest0.java</pre>
-	<br /><br />
-      </li>
-      <li>
-	This should fail!  You will get an error message that looks
-	something like this:
-	<pre>
-$ javac IntroTest0.java
-IntroTest0.java:5: cannot resolve symbol
-symbol  : class Intro  
-location: class IntroTest0
-        Intro x = new Intro();
-        ^
-IntroTest0.java:5: cannot resolve symbol
-symbol  : class Intro  
-location: class IntroTest0
-        Intro x = new Intro();
-                      ^
-	</pre> 
 
-	This is the Java compiler telling you that you need an object
-	(class) named Intro. 
-	<br /><br />
-      </li>
-      <li>
-	Create a class named Intro.  Using your favorite text editor,
-	make a file called "Intro.java" (capitalization <b>is very
-	important</b> in Java, so make sure the "I" is capitalized),
-	in the <tt>intro</tt> directory, and put the following text
-	into it:
-	<pre>
-public class Intro
-{
-}
-	</pre>
-	
-	This is the way you create a "stub class", or an object that
-	doesn't do anything yet.
-	<br /><br />
-      </li>
-      <li>
-	Try to compile IntroTest0.java again.
-	<pre>javac IntroTest0.java</pre>
-	<br /><br />
-      </li>
-      <li>
-	It should fail again!  This time, the message will be
-	something like:
-	<pre>
-IntroTest0.java:6: cannot resolve symbol
-symbol  : method getHello  ()
-location: class Intro
-        assertEquals("Hello", x.getHello());
-                               ^
-1 error
-	</pre> 
+    <p>
+        Go through the instuctions on one of these pages, then come back here...
+        <li>
+        <a href="intro-idea.html">Instructions for IntelliJ IDEA</a>
+        </li>
+        <li>
+        <a href="intro-terminal.html">Instructions for the Terminal</a>
+        (aka the Command Line or <code>javac</code>).
+        </li>
+    </p>
 
-	This is typical for test-first development.  You may have to
-	mess with your implementation code several times before the
-	test will compile.  (This is partly because Java is a
-	<b>strongly typed</b> language, and refuses to cooperate until
-	it has a lot of information about the other classes in your
-	world.) 
-	
-	<br /><br />
-      </li>
-      <li>
-	Make Intro.java look like this:
-	<pre>
-public class Intro
-{
-    public String getHello()
-    {
-        return "Goodbye";
-    }
-}
-	</pre>
-	<br /><br />
-      </li>
-      <li>
-	Compile the test one more time.
-	<pre>javac IntroTest0.java</pre>
-	<br /><br />
-      </li>
-      <li>
-	Now run the test, using the <tt>java</tt> executable.
-	<pre>java IntroTest0</pre>
-	<br /><br />
-      </li>
-      <li>
-	This should also fail!  (Are you getting used to failure yet?)
-	This is meant to simulate you not getting the answer right the
-	first time.  You should see a message like:
-	<pre>
-Running IntroTest0
-testHello...FAILURE
-Test$AssertionFailed: Expected &lt;Hello&gt; but got &lt;Goodbye&gt;
-	at Test.fail(Test.java:17)
-	at Test.assertEquals(Test.java:24)
-	at IntroTest0.testHello(IntroTest0.java:6)
-	at java.lang.reflect.Method.invoke(Native Method)
-	at Test.runTests(Test.java:136)
-	at Test.runTests(Test.java:90)
-	at Test.main(Test.java:70)
 
-OK: 0 FAILED: 1
-	</pre>
-	This is the Test program telling you that it tried to run the
-	test case called "testHello" but it failed.  The test case was
-	expecting to get back the string "Hello" but instead, it got
-	the string "Goodbye".  To be helpful, it lists the exact
-	source file and line number where the assertion was made.
-	Look down the list of "at" lines until you see the one caused
-	by your specific test case.
-	<pre>at IntroTest0.testHello(IntroTest0.java:6)</pre>
-	Open up this file (IntroTest0.java) and look at line 6.
-	<pre>assertEquals("Hello", x.getHello());</pre>
-	This gives you a big hint that the problem is somewhere inside
-	the method called <tt>getHello()</tt>.
-	<br /><br />
-      </li>
-      <li>
-	Go back to Intro.java and fix it.
-	<pre>
-public class Intro
-{
-    public String getHello()
-    {
-        return "Hello";
-    }
-}
-	</pre>
-	<br /><br />
-      </li>
-      <li>
-	Recompile and rerun the test. (Always be sure to recompile!)
-	<pre>
-javac IntroTest0.java
-java IntroTest0
-	</pre>
-	<br /><br />
-      </li>
-      <li>
-	Now, for extra credit, compile and run
-	<tt>IntroTest1.java</tt>, and try to make it pass.
-	<br /><br />
-      </li>
-    </ol>
-    
+
+
     <p>
       Still with me?  Good!  You are now ready to begin.  For each
       module, try to make each test pass, in numerical order.  Each
@@ -340,8 +189,13 @@ java IntroTest0
       programming tasks, and hints on how to complete individual
       tests.
     </p>
-    
-    <hr> 
+
+    <p>
+        <a href="../index.html#lessons">GO UP TO LESSONS</a>
+    </p>
+
+
+    <hr>
 
     All contents Copyright (C) 2002-2003 by Alex Chaffee and Purple
     Technology.  All rights reserved.  Please do not distribute
