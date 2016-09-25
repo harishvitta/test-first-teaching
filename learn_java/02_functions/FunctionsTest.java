@@ -6,9 +6,19 @@ public class FunctionsTest extends TestCase {
         assertEquals("hello", Functions.hello());
     }
 
-    public void testAdd() {
+    public void testAdd_NullCase() {
+        assertEquals(0, Functions.add(0, 0));
+    }
+
+    public void testAdd_TwoPlusTwo() {
         assertEquals(4, Functions.add(2, 2));
+    }
+
+    public void testAdd_OnePlusThree() {
         assertEquals(4, Functions.add(1, 3));
+    }
+
+    public void testAdd_BiggerNumbers() {
         assertEquals(44, Functions.add(20, 24));
     }
 
