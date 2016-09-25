@@ -27,4 +27,7 @@ public class Text
         return null;
     }
 
+    public String inPigLatin(String s) {
+        return null;
+    }
 }
