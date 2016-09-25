@@ -16,7 +16,7 @@ public class Functions {
         return null;
     }
 
-    public static int add(int[] numbers) {
+    public static int sum(int[] numbers) {
         return 0;
     }
 

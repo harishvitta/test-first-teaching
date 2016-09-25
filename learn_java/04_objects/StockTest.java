@@ -19,7 +19,7 @@ public class StockTest extends TestCase
         s.setSymbol("MSFT");
         s.setPricePerShare(56.67);
 
-        assertEquals(56.67, s.getPricePerShare());
+        assertEquals(56.67, s.getPricePerShare(), .001);
     }
 
     public void testSetNumShares()
@@ -30,7 +30,7 @@ public class StockTest extends TestCase
         s.setNumShares(100);
 
         assertEquals(100, s.getNumShares());
-        assertEquals(5667, s.getValue());
+        assertEquals(5667, s.getValue(), .001);
     }
 
     public void testMultiArgumentConstructor()
@@ -38,17 +38,17 @@ public class StockTest extends TestCase
         Stock stockYHOO = new Stock("YHOO", 43.33, 60);
 
         assertEquals("YHOO", stockYHOO.getSymbol());
-        assertEquals(43.33, stockYHOO.getPricePerShare());
+        assertEquals(43.33, stockYHOO.getPricePerShare(), .001);
         assertEquals(60, stockYHOO.getNumShares());
-        assertEquals(43.33 * 60, stockYHOO.getValue());
+        assertEquals(43.33 * 60, stockYHOO.getValue(), .001);
     }
 
     public void testMultipleInstances()
     {
         Stock stockYHOO = new Stock("YHOO", 10, 100);
         Stock stockMSFT = new Stock("MSFT", 22, 300);
-        assertEquals(1000, stockYHOO.getValue());
-        assertEquals(6600, stockMSFT.getValue());
+        assertEquals(1000, stockYHOO.getValue(), .001);
+        assertEquals(6600, stockMSFT.getValue(), .001);
     }
 
     public void testTotalValue()
@@ -60,7 +60,7 @@ public class StockTest extends TestCase
         stocks[0] = stockHP;
         stocks[1] = stockIBM;
 
-        assertEquals( 8809.1, Stock.totalValue(stocks) );
+        assertEquals( 8809.1, Stock.totalValue(stocks), .001);
     }
 
     public void testToString()
